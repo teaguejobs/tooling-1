@@ -7,7 +7,7 @@ ENV MYSQL_PASS=$MYSQL_PASS
 ENV MYSQL_DBNAME=$MYSQL_DBNAME
 
 RUN docker-php-ext-install mysqli
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 COPY start-apache /usr/local/bin
